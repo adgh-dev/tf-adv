@@ -22,3 +22,14 @@ resource "aws_instance" "web1" {
     Name = var.instance_name
   }
 }
+
+module "iam-user" {
+  source  = "terraform-aws-modules/iam/aws//modules/iam-user"
+  version = "5.11.2"
+  name="my_user_created_from_module1"
+
+
+}
+output user_arn {
+  value = module.iam-user.iam_user_arn
+}

@@ -1,4 +1,4 @@
-terraform {
+vterraform {
   cloud {
     organization = "terraform-adv-training"
 
@@ -32,4 +32,9 @@ module "iam-user" {
 }
 output user_arn {
   value = module.iam-user.iam_user_arn
+}
+
+resource "aws_iam_user_policy_attachment" "attach_policy" {
+  user       = module.iam-user.iam_user_name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonRDSFullAccess"
 }

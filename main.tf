@@ -1,4 +1,4 @@
-vterraform {
+terraform {
   cloud {
     organization = "terraform-adv-training"
 
